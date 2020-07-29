@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const mysql  = require('mysql');
 const config = require('./config.js');
 const connection = mysql.createConnection(config);
+require('dotenv').config()
 
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
@@ -15,7 +16,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   
   res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<h1>Hello from Express.js!</h1>');
+  res.write(process.env);
   res.end();
 });
 
