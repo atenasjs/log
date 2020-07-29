@@ -23,7 +23,6 @@ router.use('/new', (req, res) => {
     if (error) throw error;
     res.json({ saved: true })
   });
-  connection.end();
 });
 
 router.use('/start', (req, res) => {
@@ -31,7 +30,6 @@ router.use('/start', (req, res) => {
     if (error) throw error;
     res.json({ saved: true })
   });
-  connection.end();
 });
 
 app.use(bodyParser.json());
