@@ -13,10 +13,7 @@ const connection = mysql.createConnection(config);
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write(process.env);
-  res.end();
+  res.json(process.env);
 });
 
 // app.use('/feedback/new', (req, res) => {
