@@ -13,10 +13,7 @@ const connection = mysql.createConnection(config);
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  
-  res.json({ saved: true })
-  // res.render('index', {})
-  // res.end();
+  res.sendFile(path.resolve(__dirname, 'views/index.html'))
 });
 
 app.use('/feedback/new', (req, res) => {
