@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const mysql  = require('mysql');
 const config = require('./config.js');
 const connection = mysql.createConnection(config);
-require('dotenv').config()
 
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
