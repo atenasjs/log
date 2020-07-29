@@ -12,8 +12,10 @@ const connection = mysql.createConnection(config);
 // app.set('view engine', 'ejs');
 
 const router = express.Router();
-router.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'views/index.html'))
+router.get('/', (req, res) => { 
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<!DOCTYPE html><html> <head> <title>Atenas - Changelog</title> <style>body{margin: 0; overflow: hidden;}iframe{width: 100vw; height: 100vh; border: none; overflow: hidden;}</style> </head> <body> <iframe src="http://atenas.js.org/docs/log"> </body></html>')
+  res.end();
 });
 
 app.use('/feedback/new', (req, res) => {
