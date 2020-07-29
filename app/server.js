@@ -8,13 +8,15 @@ const mysql  = require('mysql');
 const config = require('./config.js');
 const connection = mysql.createConnection(config);
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.render('index', {})
-  res.end();
+  
+  res.json({ saved: true })
+  // res.render('index', {})
+  // res.end();
 });
 
 app.use('/feedback/new', (req, res) => {
