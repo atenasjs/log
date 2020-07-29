@@ -8,30 +8,31 @@ const mysql  = require('mysql');
 const config = require('./config.js');
 const connection = mysql.createConnection(config);
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.render('index', {})
+  
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Hello from Express.js!</h1>');
   res.end();
 });
 
-app.use('/feedback/new', (req, res) => {
-  connection.query(`INSERT INTO new(date) VALUES(now())`,function (error, results, fields) {
-    if (error) throw error;
-    res.json({ saved: true })
-  });
-  connection.end();
-});
+// app.use('/feedback/new', (req, res) => {
+//   connection.query(`INSERT INTO new(date) VALUES(now())`,function (error, results, fields) {
+//     if (error) throw error;
+//     res.json({ saved: true })
+//   });
+//   connection.end();
+// });
 
-app.use('/feedback/start', (req, res) => {
-  connection.query(`INSERT INTO start(date) VALUES(now())`,function (error, results, fields) {
-    if (error) throw error;
-    res.json({ saved: true })
-  });
-  connection.end();
-});
+// app.use('/feedback/start', (req, res) => {
+//   connection.query(`INSERT INTO start(date) VALUES(now())`,function (error, results, fields) {
+//     if (error) throw error;
+//     res.json({ saved: true })
+//   });
+//   connection.end();
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
