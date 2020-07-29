@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
   res.end();
 });
 
-app.use('/new', (req, res) => {
+router.use('/new', (req, res) => {
   connection.query(`INSERT INTO new(date) VALUES(now())`,function (error, results, fields) {
     if (error) throw error;
     res.json({ saved: true })
@@ -26,7 +26,7 @@ app.use('/new', (req, res) => {
   connection.end();
 });
 
-app.use('/start', (req, res) => {
+router.use('/start', (req, res) => {
   connection.query(`INSERT INTO start(date) VALUES(now())`,function (error, results, fields) {
     if (error) throw error;
     res.json({ saved: true })
