@@ -1,0 +1,32 @@
+{
+  "name": "log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "functions/server.js",
+  "scripts": {
+    "build": "netlify-lambda build app",
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "netlify-lambda": "^1.6.3",
+    "nodemon": "^1.19.2",
+    "serverless-http": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atenasjs/log.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atenasjs/log/issues"
+  },
+  "homepage": "https://github.com/atenasjs/log#readme"
+}
